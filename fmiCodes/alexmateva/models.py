@@ -53,14 +53,8 @@ class User(AbstractBaseUser):
     rated_events = []
     liked_users = []
 
-    def __init__(self, email, user_name, password):
-        self.email = email
-        self.user_name = user_name
-        self.password = password
-
-    def create_event(self, name, description, time, location):
-        event = Event(name, description, time, location)
-        self.create_event.append(event)
+    def __str__(self):
+        return self.user_name
 
 
 class Event(models.Model):

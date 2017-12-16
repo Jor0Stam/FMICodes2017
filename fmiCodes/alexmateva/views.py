@@ -6,7 +6,7 @@ from .models import Event
 from .forms import EventForm
 
 class EventCreater(View):
-    template_name = 'alexmateva/create-event.html'
+    template_name = 'alexmateva/base.html'
 
     def get(self, request):
         form = EventForm(request.GET)
