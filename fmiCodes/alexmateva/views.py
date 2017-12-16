@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponse
@@ -21,8 +21,11 @@ class EventCreater(View):
         form = EventForm(request.POST)
 
         if form.is_valid():
-
-            return HttpResponse('/success/')
+            Event.objects.create(name=request.POST.get('name'),
+                                 description=request.POST.get('description'),
+                                 location=request.POST.get('location'),
+                                 rating=0)
+            return redirect('list_events')
 
         return render(request, self.template_name, locals())
 
