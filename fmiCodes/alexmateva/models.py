@@ -74,7 +74,7 @@ class Event(models.Model):
     rating = models.IntegerField()
     location = models.CharField(max_length=255)
     #pics
-    creator = models.ForeignKey(User, editable=False)
+    creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
     rating = models.IntegerField()
-    location = models.CharField()
+    location = models.CharField(max_length=255)
     # pics
