@@ -5,7 +5,7 @@ from django.views.generic.detail import DetailView
 from django.http import HttpResponse
 from .models import Event
 from .forms import EventForm
-
+from random import randint
 
 class EventDetail(DetailView):
 
@@ -44,5 +44,15 @@ class EventLister(ListView):
     template_name='alexmateva/event_list.html'
 
     def get(self, request):
-        return render(request, self.template_name)
 
+        events = Event.objects.all()
+        return render(request, self.template_name, locals())
+
+class EventRandomizer(View);
+    
+
+    def get(self, request):
+        count = Event.objects.count()
+        random_index = randint(1, count)
+
+        return redirect('event-info/{}'.format(random_index))
