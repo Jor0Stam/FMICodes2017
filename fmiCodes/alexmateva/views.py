@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView
 from django.http import HttpResponse
 from .models import Event
 from .forms import EventForm
@@ -23,3 +24,13 @@ class EventCreater(View):
             return HttpResponseRedirect('/success/')
 
         return render(request, self.template_name, locals())
+
+
+class EventLister(ListView):
+
+    model = Event
+    template_name='alexmateva/event_list.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+

@@ -67,6 +67,8 @@ class User(AbstractBaseUser):
 
 
 class Event(models.Model):
+
+    event_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     created_date = models.DateTimeField(default=timezone.now())
     description = models.TextField()
