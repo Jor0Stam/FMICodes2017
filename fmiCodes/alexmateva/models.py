@@ -59,13 +59,13 @@ class User(AbstractBaseUser):
 
 class Event(models.Model):
     name = models.CharField(max_length=255)
-    created_date = models.DateTimeField(default=timezone.now())
+    created_date = models.DateTimeField(default=timezone.now)
     description = models.TextField()
     # creator = models.ForeignKey(User, editable = False)
-    rating = models.IntegerField()
+    rating = models.IntegerField(default=3)
     location = models.CharField(max_length=255)
     # pics
-    creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
+    # creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
     rating = models.IntegerField()
     location = models.CharField(max_length=255)
     # pics
