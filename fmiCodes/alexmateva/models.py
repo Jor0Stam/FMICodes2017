@@ -53,27 +53,19 @@ class User(AbstractBaseUser):
     rated_events = []
     liked_users = []
 
-    def __init__(self, email, user_name, password):
-        self.email = email
-        self.user_name = user_name
-        self.password = password
-
-    def create_event(self, name, description, time, location):
-        event = Event(name, description, time, location)
-        self.create_event.append(event)
+    def __str__(self):
+        return self.user_name
 
 
 class Event(models.Model):
-
-    event_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    created_date = models.DateTimeField(default=timezone.now())
+    created_date = models.DateTimeField(default=timezone.now)
     description = models.TextField()
     # creator = models.ForeignKey(User, editable = False)
-    rating = models.IntegerField()
+    rating = models.IntegerField(default=3)
     location = models.CharField(max_length=255)
     # pics
-    creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
+    # creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
     rating = models.IntegerField()
     location = models.CharField(max_length=255)
     # pics
