@@ -45,21 +45,18 @@ class User(AbstractBaseUser):
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
-        unique=True,
-    )
+        unique=True)
     user_name = models.CharField(max_length=30, unique=True)
     password = models.CharField(max_length=20)
-    profile_picture = models.ImageField(upload_to=None)
     created_evets = []
     been_to_events = []
     rated_events = []
     liked_users = []
 
-    def __init__(self, email, user_name, password, profile_picture):
+    def __init__(self, email, user_name, password):
         self.email = email
         self.user_name = user_name
         self.password = password
-        self.profile_picture
 
     def create_event(self, name, description, time, location):
         event = Event(name, description, time, location)
@@ -75,7 +72,7 @@ class Event(models.Model):
     # creator = models.ForeignKey(User, editable = False)
     rating = models.IntegerField()
     location = models.CharField(max_length=255)
-    #pics
+    # pics
     creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
     rating = models.IntegerField()
     location = models.CharField(max_length=255)

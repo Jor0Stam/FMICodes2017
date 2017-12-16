@@ -9,7 +9,7 @@ class EventCreater(View):
     template_name = 'alexmateva/create-event.html'
 
     def get(self, request):
-        form = EventForm(request.POST)
+        form = EventForm(request.GET)
 
         if form.is_valid():
 
@@ -18,10 +18,11 @@ class EventCreater(View):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
+        form = EventForm(request.POST)
 
         if form.is_valid():
 
-            return HttpResponseRedirect('/success/')
+            return HttpResponse('/success/')
 
         return render(request, self.template_name, locals())
 
