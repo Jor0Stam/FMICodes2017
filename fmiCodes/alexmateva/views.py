@@ -1,9 +1,17 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.http import HttpResponse
 from .models import Event
 from .forms import EventForm
+
+
+class EventDetail(DetailView):
+
+    model = Event
+    def get_context_data(self, *args):
+        pass
 
 class EventCreater(View):
     template_name = 'alexmateva/base.html'
