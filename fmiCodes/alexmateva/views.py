@@ -48,9 +48,8 @@ class EventLister(ListView):
         events = Event.objects.all()
         return render(request, self.template_name, locals())
 
-class EventRandomizer(View);
+class EventRandomizer(View):
     
-
     def get(self, request):
         count = Event.objects.count()
         random_index = randint(1, count)
