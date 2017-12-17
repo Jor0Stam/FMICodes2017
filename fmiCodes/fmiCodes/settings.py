@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'alexmateva',
     'userauthentication',
     'reset_migrations',
-    'challenges'
+    'challenges',
+    'survey'
 ]
 
 MIDDLEWARE = [
