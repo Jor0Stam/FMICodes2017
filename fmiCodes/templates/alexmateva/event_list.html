@@ -1,7 +1,17 @@
-<h1>Events</h1>
+{% extends "index.html" %}
+
+{% load static%}
+{% block title %}
+COOL EVENTS
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
 
 <ul>
   {% for event in events %}
-    <li class="event">{{ event }}</li>
+    <li class="event">{{ event.name }}</li>
   {% endfor %}
 </ul>
+
+{% endblock %}
