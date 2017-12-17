@@ -1,4 +1,5 @@
 from django.db import models
+# from django.auth.contrib import User
 # Create your models here.
 
 #Questions
@@ -22,3 +23,8 @@ class Question(models.Model):
 class MultipleAnswerQuestion(models.Model):
     question = models.CharField(max_length=255)
     answer = models.CharField(max_length=20, choices=M_CHOICES)
+
+
+# class AnswerCollector(models.Model):
+    # user = models.ForeignKeyField(User)
+    # answers = models.ListField

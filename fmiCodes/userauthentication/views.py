@@ -5,6 +5,28 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 
+def login_view(request):
+    form = LoginForm()
+
+    if request.user.is_authenticated:
+        return redirect(reverse('index'))
+
+    if request.method == 'POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect(reverse('index'))
+        else:
+            alert = form.errors
+            return render(request, 'login.html', {'alert': alert})
+    return render(request, 'login.html', locals())
+
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
