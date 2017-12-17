@@ -15,8 +15,13 @@ Create new blog post
 				</div>
 				<form action="" method="POST" enctype="multipart/form-data" style="width:50%">
 				    {% csrf_token %}
-				    {{ form.as_p }}
-				    <input type="SUBMIT"> Create It ! </input>
+				    {% for field in form.fields %}
+						<div class="form-group">
+	      			<label for="id_{{ field }}">{{ field }}:</label>
+	      			<input id="id_{{ field }}" type="{{ field}}" name="{{ field }}" class="form-control input-lg required" required>
+	      			</div>
+					{% endfor %}
+				    <button type="submit" class="btn btn-primary">Create </button>
 				</form>
 			</div>
 		</div>
