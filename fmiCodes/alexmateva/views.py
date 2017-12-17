@@ -14,7 +14,7 @@ class EventDetail(DetailView):
         pass
 
 class EventCreater(View):
-    template_name = 'alexmateva/base.html'
+    template_name = 'alexmateva/create-event.html'
 
     def get(self, request):
         form = EventForm(request.GET)
