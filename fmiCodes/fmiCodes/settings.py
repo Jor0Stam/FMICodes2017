@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'alexmateva',
+    'userauthentication',
     'reset_migrations',
+    'challenges'
 ]
 
 MIDDLEWARE = [

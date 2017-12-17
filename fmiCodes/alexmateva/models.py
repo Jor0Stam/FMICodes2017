@@ -66,6 +66,5 @@ class Event(models.Model):
     location = models.CharField(max_length=255)
     # pics
     # creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
-    rating = models.IntegerField()
-    location = models.CharField(max_length=255)
+   ## location = models.CharField(max_length=255)
     # pics
