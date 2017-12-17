@@ -68,3 +68,7 @@ class Event(models.Model):
     # creator = models.ForeignKey(User, on_delete='CASECADE', editable=False)
    ## location = models.CharField(max_length=255)
     # pics
+    
+    def __str__(self):
+        return self.name
+

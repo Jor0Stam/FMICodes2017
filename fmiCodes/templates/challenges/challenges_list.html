@@ -2,16 +2,42 @@
 
 {% load static%}
 {% block title %}
-COOL EVENTS
+COOL CHALLENGES
 {% endblock %}
 
 {% block content %}
 {{ block.super }}
-
-<ul>
-  {% for challenge in challenges %}
-    <li class="challenge">{{ challenge.name }}</li>
-  {% endfor %}
-</ul>
-
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Challenges List</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Location</th>
+                  <th>Rating</th>
+                  <th>Created Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for ch in challenges %}
+                  <tr>
+                    <td>{{ ch.name }}</td>
+                    <td>{{ ch.description }}</td>
+                    <td>{{ ch.location }}</td>
+                    <td>{{ ch.rating }}</td>
+                    <td>{{ ch.created_date }}</td>
+                  </tr>
+                 {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
 {% endblock %}
