@@ -1,20 +1,3 @@
-.filter(id=int(event_id)).first()
-        form = EventForm()
-        
-                if request.POST.name:
-                                event.name = request.POST.name
-                                
-                                        if request.POST.name:
-                                                        event.description = request.POST
-                                                        
-                                                                if request.POST.name:
-                                                                                event.location = request.POST
-                                                                                
-                                                                                        return render(request, self.update_template_name, locals())
-                                                                                    
-                                                                                    q
-                                                                                    :q
-                                                                                    !/usr/bin/env python
 import os
 import sys
 

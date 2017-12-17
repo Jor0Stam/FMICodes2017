@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('alex/', include('alexmateva.urls')),
     path('user/', include('userauthentication.urls')),
-    path('challenges/',include('challenges.urls'))
+    path('challenges/',include('challenges.urls')),
+    path('',include('survey.urls')),
 ]

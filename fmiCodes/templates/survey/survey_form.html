@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="POST" enctype="multipart/form-data" style="width:50%">
+    {% csrf_token %}
+
+    {% for pair in pairs %}
+        {{pair.0}} : {{ pair.1.as_p }}
+    {% endfor %}
+    <input type="SUBMIT"> Submit It ! </input>
+</form>
+{% endblock %}
