@@ -12,7 +12,6 @@ class Challenge(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     competitors = models.ManyToManyField(User, related_name='user')
-    name = models.TextField()
     start_date = models.DateTimeField(default=timezone.now)
     # default_end_date = timedelta(days=10)
     # end_date = models.DateTimeField(default=start_date + default_end_date)
