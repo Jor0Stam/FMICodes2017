@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>HELLLOOOOO ! </p>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% form %}
+    <input type="SUBMIT"> Update It ! </input>
+</form>
+{% endblock %}

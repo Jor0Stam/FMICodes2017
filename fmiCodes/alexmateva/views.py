@@ -7,19 +7,42 @@ from .models import Event
 from .forms import EventForm
 from random import randint
 
+
+class EventUpdate(View):
+    template_name = 'alexmateva/edit_event.html'
+
+    def get(self, request, event_id):
+        event = Event.objects.filter(id=int(event_id)).first()
+        # Add redirect for not found when there's no such event
+        return render(request, 'alexmateva/edit_event.html', locals())
+
+    def post(self, request, event_id):
+        event = Event.objects.filter(id=int(event_id)).first()
+        form = EventForm()
+
+        if request.POST.name:
+            event.name = request.POST.name
+
+        if request.POST.name:
+            event.description = request.POST
+
+        if request.POST.name:
+            event.location = request.POST
+
+        return render(request, self.template_name, locals())
+
+
+
 class EventDetail(View):
     template_name = 'alexmateva/event_info.html'
 
     def get(self, request, event_id):
-        event = Event.objects.filter(id=int(event_id))
+        event = Event.objects.filter(id=int(event_id)).first()
         # Add redirect for not found when there's no such event
         return render(request, self.template_name, locals())
 
-    def post(self, request, event_id):
-        pass
-
     def delete(self, request, event_id):
-        pass
+        event = Event.objects.filter(id=int(event_id)).first()
         # Add here delete method, щото не е очевидно, дъъъ!
 
 class EventCreater(View):
@@ -58,7 +81,7 @@ class EventLister(ListView):
         return render(request, self.template_name, locals())
 
 class EventRandomizer(View):
-    
+
     def get(self, request):
         count = Event.objects.count()
         random_index = randint(1, count)
