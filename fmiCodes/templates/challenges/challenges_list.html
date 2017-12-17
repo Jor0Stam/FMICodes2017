@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% load static%}
+{% block title %}
+COOL EVENTS
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+<ul>
+  {% for challenge in challenges %}
+    <li class="challenge">{{ challenge.name }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
