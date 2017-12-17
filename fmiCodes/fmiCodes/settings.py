@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'survey',
     'alexmateva',
     'userauthentication',
     'reset_migrations',
-    'challenges',
-    'survey'
+    'challenges'
 ]
 
 MIDDLEWARE = [

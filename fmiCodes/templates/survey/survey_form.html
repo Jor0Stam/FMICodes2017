@@ -1,6 +1,7 @@
-{% extends "base.html" %}
+{% extends "index.html" %}		
 
 {% block content %}
+{{ block.super }}
 <form action="" method="POST" enctype="multipart/form-data" style="width:50%">
     {% csrf_token %}
 
